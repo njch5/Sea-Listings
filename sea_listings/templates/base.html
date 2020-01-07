@@ -12,9 +12,9 @@
 
 </head>
   <body>
-    <nav>
+    <nav class="nav blue lighten-2">
       <div class="container nav-wrapper">
-          <a href="/" class="brand-logo">Sea-Listings</a>
+          <a href="/" class="brand-logo"><i class="material-icons">beach_access</i>Sea-Listings</a>
           <ul id="nav-mobile" class="right">
               <li><a href="/">Home</a></li>
           </ul>
@@ -52,6 +52,14 @@
       </div>
     </div>
     
+    <form action="{% url 'new_search' %}" method="post">
+      {% csrf_token %}
+      <input type="text" name="search" placeholder="search">
+      <!-- <input type="submit" name="submit"> -->
+      <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+      </button>
+    </form>
 
     {% block content %}
 
