@@ -5,4 +5,11 @@ def home(request):
   return render(request, 'base.html')
 
 def new_search(request):
-  return render(request, 'my_app/new_search.html')
+  # Pull date from the search bar
+  # Python dictionary 'get'
+  search = request.POST.get('search')
+  print(search)
+  stuff_for_frontend = {
+    'search': search,
+    }
+  return render(request, 'my_app/new_search.html', stuff_for_frontend)
