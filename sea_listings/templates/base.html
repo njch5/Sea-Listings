@@ -21,13 +21,13 @@
       </div>
     </nav>
     <div class="container">
-    <h1 style="text-align: center">What do you want to search for on Sea-Listings?</h1>
+    <h1 style="text-align: center">Welcome to Sea-Listings!</h1>
     <!-- Using flexbox to contain each element -->
     <div class="row">
         <div class="col s4">
             <!-- Promo Content 1 goes here -->
             <div class="center">
-                <i class="large material-icons" style="color: #EE6E73">flash_on</i>
+                <i class="large material-icons" style="color: #ef9a9a">search</i>
                 <p>Fast craigslist web scraper</p>
                 <p class="light center">Scrape away right here with a beautiful GUI.</p>
             </div>
@@ -36,9 +36,9 @@
         <div class="col s4">
           <!-- Promo Content 2 goes here -->
           <div class="center">
-              <i class="large material-icons" style="color: orange">camera</i>
-              <p>Filter your searches</p>
-              <p class="light center">We built in functionality to filter based on pricing.</p>
+              <i class="large material-icons" style="color: orange">sentiment_very_satisfied</i>
+              <p>Satisfactory results</p>
+              <p class="light center">Built in functionality to filter based on pricing.</p>
           </div>
       </div>
 
@@ -47,11 +47,11 @@
         <div class="center">
             <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
             <p>Visually pleasing front-end for Craigslist</p>
-            <p class="light center">We built this with ❤️</p>
+            <p class="light center">Built this with ❤️</p>
         </div>
       </div>
     </div>
-    
+
     <form action="{% url 'new_search' %}" method="post">
       {% csrf_token %}
       <input type="text" name="search" placeholder="search">
