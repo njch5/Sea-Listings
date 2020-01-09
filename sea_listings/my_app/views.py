@@ -25,13 +25,13 @@ def new_search(request):
   # post_titles = soup.find_all('a', {'class': 'result-title'})
 
   post_listings = soup.find_all('li', {'class': 'result-row'})
- 
+
   final_postings = []
 
   for post in post_listings:
     post_title = post.find(class_='result-title').text
     post_url = post.find('a').get('href')
-    
+
     if post.find(class_='result-price'):
       post_price = post.find(class_='result-price').text
     else:
