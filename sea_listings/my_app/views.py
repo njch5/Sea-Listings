@@ -1,4 +1,6 @@
 import requests
+# It will automatically put a plus or %20 between a space
+from requests.compat import quote_plus
 from django.shortcuts import render
 from bs4 import BeautifulSoup
 
@@ -12,9 +14,11 @@ def new_search(request):
   # Pull date from the search bar
   # Python dictionary 'get'
   search = request.POST.get('search')
+  final_url = BASE_URL.format(quote_plus(search))
+  print(final_url)
   response = requests.get('https://seattle.craigslist.org/search/?query=python%20tutor&sort=rel')
   data = response.text
-  print(data)
+  # print(data)
   # print(search)
   stuff_for_frontend = {
     'search': search,
