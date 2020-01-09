@@ -1,5 +1,5 @@
 # from django.test import TestCase
-from django.test import SimpleTestCase
+from django.test import SimpleTestCase, TestCase, Client
 from django.urls import reverse, resolve
 from my_app.views import home, new_search
 
@@ -18,3 +18,14 @@ class TestUrls(SimpleTestCase):
 
 
 # Views Tests
+
+class TestViews(TestCase):
+
+  def setUp(self):
+    self.client = Client()
+    self.home_url = reverse('home')
+  
+  def test_home_GET(self):
+    response = self.client.get(self.home_url)
+    self.assertEquals(response.status_code, 200)
+    self.assertTemplateUsed(response, 'base.html')
