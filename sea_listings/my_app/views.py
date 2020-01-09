@@ -20,6 +20,12 @@ def new_search(request):
   final_url = BASE_URL.format(quote_plus(search))
   response = requests.get(final_url)
   data = response.text
+  soup = BeautifulSoup(data, features='html.parser')
+  # Find all the links that are result-title
+  # post_titles = soup.find_all('a', {'class': 'result-title'})
+
+  post_listings = soup.find_all('li', {'class': 'result-row'})
+
 
   stuff_for_frontend = {
     'search': search,
