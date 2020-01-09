@@ -3,6 +3,7 @@ import requests
 from requests.compat import quote_plus
 from django.shortcuts import render
 from bs4 import BeautifulSoup
+from . import models
 
 BASE_URL = 'https://seattle.craigslist.org/search/?query={}'
 
@@ -14,12 +15,12 @@ def new_search(request):
   # Pull date from the search bar
   # Python dictionary 'get'
   search = request.POST.get('search')
+  # Creates Search object and adds to database
+  models.Search.objects.create(search=search)
   final_url = BASE_URL.format(quote_plus(search))
-  print(final_url)
-  response = requests.get('https://seattle.craigslist.org/search/?query=python%20tutor&sort=rel')
+  response = requests.get(final_url)
   data = response.text
-  # print(data)
-  # print(search)
+
   stuff_for_frontend = {
     'search': search,
     }
