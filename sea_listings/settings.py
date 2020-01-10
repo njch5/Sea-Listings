@@ -27,7 +27,7 @@ SECRET_KEY = 'ar+5%%j=@%oc6yhsaoa%9kqk&yly6d%+#-=)j1qrwrkh)csnuo'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sea-listings.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
