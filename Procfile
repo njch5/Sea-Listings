@@ -1,0 +1,1 @@
+web: gunicorn sea_listings.wsgi --log-file -
