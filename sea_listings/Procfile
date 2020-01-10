@@ -1,1 +1,1 @@
-web: gunicorn sea_listings.wsgi
+web: gunicorn sea_listings.wsgi --log-file -
