@@ -4,6 +4,8 @@ from requests.compat import quote_plus
 from django.shortcuts import render
 from bs4 import BeautifulSoup
 from . import models
+from re import sub
+from decimal import Decimal
 
 BASE_URL = 'https://seattle.craigslist.org/search/?query={}'
 BASE_IMAGE_URL = 'https://images.craigslist.org/{}_300x300.jpg'
@@ -34,7 +36,9 @@ def new_search(request):
     post_url = post.find('a').get('href')
 
     if post.find(class_='result-price'):
-      post_price = post.find(class_='result-price').text
+      # Convert price to decimal/value so we can sort by price
+      mon = post.find(class_='result-price').text
+      post_price = Decimal(sub(r'[^\d.]', '', mon))
     else:
       post_price = 'N/A'
     
@@ -47,8 +51,18 @@ def new_search(request):
 
     final_postings.append((post_title, post_url, post_price, post_image_url))
 
+  selected = request.POST.get('selected')
+  # print(selected)
+  # print(type(selected))
 
-  print()
+  ## Next to do: Use Regex to grab digits after $ and before comma
+
+  if selected == '1':
+    final_postings = sorted(final_postings, key=lambda x: x[2])
+  elif selected == '2':
+    final_postings = sorted(final_postings, key=lambda x: x[2], reverse=True)
+
+  # print(final_postings)
 
   stuff_for_frontend = {
     'search': search,
