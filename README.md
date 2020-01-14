@@ -30,7 +30,7 @@ virtualenv NAME_OF_ENV
 
 To activate a virtual environment 
 ```bash
-source/bin/NAME_OF_ENV
+source NAME_OF_ENV/bin/activate
 ```
 To deactivate, simply write `deactivate`. Make sure when running either of these commands that you are in the same directory as where your virtualenv is located
 

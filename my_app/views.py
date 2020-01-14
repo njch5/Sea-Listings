@@ -18,9 +18,16 @@ def new_search(request):
   # Pull date from the search bar
   # Python dictionary 'get'
   search = request.POST.get('search')
+  zip = request.POST.get('zip')
+  miles = request.POST.get('miles-select')
+
   # Creates Search object and adds to database
   models.Search.objects.create(search=search)
   final_url = BASE_URL.format(quote_plus(search))
+  if zip and miles:
+    final_url = final_url + '&search_distance=' + miles + '&postal=' + zip
+  
+  print(final_url)
   response = requests.get(final_url)
   data = response.text
   soup = BeautifulSoup(data, features='html.parser')
@@ -45,7 +52,7 @@ def new_search(request):
     if post.find(class_='result-image').get('data-ids'):
       post_image_id = post.find(class_='result-image').get('data-ids').split(',')[0].split(':')[1]
       post_image_url = BASE_IMAGE_URL.format(post_image_id)
-      print(post_image_url)
+      # print(post_image_url)
     else:
       post_image_url = 'https://craigslist.org/images/peace.jpg'
 
