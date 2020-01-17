@@ -24,8 +24,14 @@ class TestViews(TestCase):
   def setUp(self):
     self.client = Client()
     self.home_url = reverse('home')
+    self.new_search_url = reverse('new_search')
   
   def test_home_GET(self):
     response = self.client.get(self.home_url)
     self.assertEquals(response.status_code, 200)
     self.assertTemplateUsed(response, 'base.html')
+
+  def test_new_search_GET(self):
+    response = self.client.get(self.new_search_url)
+    self.assertEquals(response.status_code, 200)
+    self.assertTemplateUsed(response, 'new_search.html')
