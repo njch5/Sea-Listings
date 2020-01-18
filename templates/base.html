@@ -31,7 +31,6 @@
     <!-- Using flexbox to contain each element -->
     <div class="row">
         <div class="col s4">
-            <!-- Promo Content 1 goes here -->
             <div class="center">
                 <i class="large material-icons" style="color: #ef9a9a">search</i>
                 <p>Fast webscraping</p>
@@ -40,7 +39,6 @@
         </div>
 
         <div class="col s4">
-          <!-- Promo Content 2 goes here -->
           <div class="center">
               <i class="large material-icons" style="color: orange">sentiment_very_satisfied</i>
               <p>Satisfactory results</p>
@@ -49,7 +47,6 @@
       </div>
 
       <div class="col s4">
-        <!-- Promo Content 3 goes here -->
         <div class="center">
             <i class="large material-icons" style="color: blue">chrome_reader_mode</i>
             <p>Visually pleasing front-end for Craigslist</p>
@@ -60,30 +57,20 @@
 
     <form action="{% url 'new_search' %}" method="post">
       {% csrf_token %}
-      <input type="text" name="search" placeholder="search">
-      <!-- <input type="submit" name="submit"> -->
+      <input type="text" name="search" placeholder="What would you like to search for?" required="" aria-required="true">
 
       <!-- Low to high vs high to low pricing options -->
       <div class="input-field col s4">
         <select name="selected">
-          <option value="" disabled selected>Choose your option</option>
+          <option value="" disabled selected>Sort By Price:</option>
           <option value="1">Low to High</option>
           <option value="2">High to Low</option>
         </select>
-        <!-- <label>Materialize Select</label> -->
       </div>
 
-      <input type="text" name="zip" placeholder="zipcode">
+      <input type="number" name="zip" placeholder="Zipcode" class="validate">
 
-      <!-- <div class="input-field col s4">
-        <select name="miles-select">
-          <option value="" disabled selected>Miles from Zipcode</option>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
-        </select>
-      </div> -->
-      <input type="text" name="miles-select" placeholder="Miles from zipcode">
+      <input type="number" name="miles-select" placeholder="Miles from zipcode" class="validate">
       
       <button class="btn waves-effect waves-light" type="submit" name="action">Submit
         <i class="material-icons right">send</i>
@@ -107,5 +94,30 @@
         $('select').formSelect();
       });
     </script>
+
+<script>
+  // Extension materialize.css. Form validations
+  $.validator.setDefaults({
+      errorClass: 'invalid',
+      validClass: "valid",
+      errorPlacement: function (error, element) {
+          $(element)
+              .closest("form")
+              .find("label[for='" + element.attr("id") + "']")
+              .attr('data-error', error.text());
+      },
+      submitHandler: function (form) {
+          console.log('form ok');
+      }
+  });
+  
+  $("#form").validate({
+      rules: {
+          dateField: {
+              date: true
+          }
+      }
+  });
+  </script>
   </body>
 </html>
