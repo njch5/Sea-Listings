@@ -21,7 +21,7 @@
           </ul>
       </div>
     </nav>
-    <!-- TODO: Decide whether to keep parallax or not... -->
+
     <div class="parallax-container">
       <div class="parallax"><img src="{% static 'blank-frame.jpg' %}" style="padding-bottom: 580px"></div>
     </div>
@@ -68,7 +68,7 @@
         </select>
       </div>
 
-      <input type="number" name="zip" placeholder="Zipcode" class="validate">
+      <input id="zip" type="number" name="zip" placeholder="Zipcode" class="validate">
 
       <input type="number" name="miles-select" placeholder="Miles from zipcode" class="validate">
       
@@ -93,6 +93,17 @@
       $(document).ready(function(){
         $('select').formSelect();
       });
+    </script>
+
+    <!-- Added JavaScript that will limit zipcode input to 5 digits -->
+    <script>
+      let zip = document.getElementById('zip');
+
+      zip.addEventListener('keyup', () => {
+        if (zip.value.length > 5) {
+            zip.value = zip.value.slice(0, 5);
+        }
+      })
     </script>
 
 <script>

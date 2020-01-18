@@ -17,15 +17,18 @@ Craigslist has been around the web since 1995. Even though it's one of the most 
   - User can filter listings from lowest to highest priced items and vice versa
 - Filter by location
   - User can filter by zipcode and specify the number of miles away from the zipcode
-
+- Validation on form
+  - Search keyword is required. If user attempts to submit an empty form, they will receive a validation error
+  - Zipcode input is limited to 5 characters. Both zipcode and miles only take numbers.
 
 ## Technologies Used
 
 - Python
 - Django
-- Bootstrap
-- Materialize (front-end framework based on Material Design)
 - Beautiful Soup (Python library for web scraping)
+- JavaScript
+- jQuery
+- Materialize (front-end framework based on Material Design)
 - Heroku
 
 ## Getting Started
