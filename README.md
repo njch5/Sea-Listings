@@ -31,6 +31,10 @@ Craigslist has been around the web since 1995. Even though it's one of the most 
 - Materialize (front-end framework based on Material Design)
 - Heroku
 
+## Video Demo
+
+[![Sea-Listings demo](http://img.youtube.com/vi/V1VeK434Yro/0.jpg)](http://www.youtube.com/watch?v=V1VeK434Yro)
+
 ## Getting Started
 
 1.  Create a virtual environment
