@@ -26,6 +26,8 @@ def new_search(request):
   final_url = BASE_URL.format(quote_plus(search))
   if zip and miles:
     final_url = final_url + '&search_distance=' + miles + '&postal=' + zip
+  elif zip:
+    final_url = final_url + '&postal=' + zip
   
   print(final_url)
   response = requests.get(final_url)
