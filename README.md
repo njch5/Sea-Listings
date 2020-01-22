@@ -1,12 +1,8 @@
 # Sea-Listings
 
-(*UNDER CONSTRUCTION*)
-
 ## Problem Statement
 
 Craigslist has been around the web since 1995. Even though it's one of the most popular marketplace sites for users to search for various items, Craigslist's interface has not changed much. The front page interface appears outdated and lacks any visuals besides the user-generated images on listings. This web app hopes to provide an image associated with each listing immediately after the user searches for a particular item. In particular, this app will be scraping listings from the Seattle Craigslist site.
-
-*Note: The name of this web app is Sea-Listings because the web scraping is done on the Seattle Craigslist site. And it's a fun play on "see listings" but replaced with 'sea' to reference Seattle*
 
 ## Main Features
 
@@ -16,10 +12,10 @@ Craigslist has been around the web since 1995. Even though it's one of the most 
 - Filter by pricing
   - User can filter listings from lowest to highest priced items and vice versa
 - Filter by location
-  - User can filter by zipcode and specify the number of miles away from the zipcode
+  - User can filter by zip code and specify the number of miles away from the zip code
 - Validation on form
   - Search keyword is required. If user attempts to submit an empty form, they will receive a validation error
-  - Zipcode input is limited to 5 characters. Both zipcode and miles only take numbers.
+  - Zip code input is limited to 5 characters. Both zip code and miles only take numbers.
 
 ## Technologies Used
 
@@ -68,4 +64,5 @@ To deactivate, simply write `deactivate`. Make sure when running either of these
 
 5.  Run the web server on your localhost
 - In the terminal, run the command `python manage.py runserver`. This must be done in the same directory as where the manage.py file is located.
+- Use Google Chrome as the preferred browser
 - If the command is successful, the web app can be seen on http://127.0.0.1:8000/
