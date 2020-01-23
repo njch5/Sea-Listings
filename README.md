@@ -2,7 +2,7 @@
 
 ## Problem Statement
 
-Craigslist has been around the web since 1995. Even though it's one of the most popular marketplace sites for users to search for various items, Craigslist's interface has not changed much. The front page interface appears outdated and lacks any visuals besides the user-generated images on listings. This web app hopes to provide an image associated with each listing immediately after the user searches for a particular item. In particular, this app will be scraping listings from the Seattle Craigslist site.
+Craigslist has been around the web since 1995. Even though it's one of the most popular marketplace sites for users to search for various items, Craigslist's interface has not changed much. The front page interface appears outdated and lacks any visuals besides the user-generated images on listings. This web app hopes to provide an image associated with each listing immediately after the user searches for a particular item and make the app a one-stop search. In particular, this app will be scraping listings from the Seattle Craigslist site.
 
 ## Main Features
 
@@ -66,3 +66,13 @@ To deactivate, simply write `deactivate`. Make sure when running either of these
 - In the terminal, run the command `python manage.py runserver`. This must be done in the same directory as where the manage.py file is located.
 - Use Google Chrome as the preferred browser
 - If the command is successful, the web app can be seen on http://127.0.0.1:8000/
+
+## Biggest Takeaways from Capstone
+
+- This is often said at Ada but needs to be repeated often: DEPLOY EARLY AND DEPLOY OFTEN!
+  - I'm glad I took the time to deploy at the end of the week 1 because deployment took over 5 hours after encountering a bizarre set of errors.
+  - During my time at Ada, I've learned to not fear the errors I was getting in my terminal but to embrace the challenge of being able to solve the issues.
+
+- Virtual environments are very handy and makes it easy to not have conflicting dependencies across multiple projects.
+
+- There are TONS of libraries that will make your life easier (especially with CSS!!)
