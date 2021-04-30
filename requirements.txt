@@ -21,7 +21,7 @@ setuptools==44.0.0
 six==1.13.0
 soupsieve==1.9.5
 sqlparse==0.3.0
-urllib3==1.25.7
+urllib3==1.25.8
 wheel==0.33.6    
 whitenoise==5.0.1 
 wrapt==1.11.2
